@@ -5,27 +5,31 @@ using namespace std;
 
 int main()
 {
-  int T, x = 0;
-  string x1 = "x++";
-  string x2 = "++x";
-  string x3 = "x--";
-  string x4 = "--x";
-  cin >> T;
-  while (T--)
+  int arr[5][5];
+  for (int i = 0; i < 5; i++)
   {
-    string s;
-    cin >> s;
-    transform(s.begin(), s.end(), s.begin(), ::tolower);
-    if (s == x1 || s == x2)
+    for (int j = 0; j < 5; j++)
     {
-      x++;
-    }
-    else if (s == x3 || s == x4)
-    {
-      x--;
+      cin >> arr[i][j];
     }
   }
 
-  cout << x << endl;
+  int x, y;
+
+  for (int i = 0; i < 5; i++)
+  {
+    for (int j = 0; j < 5; j++)
+    {
+      if (arr[i][j] == 1)
+      {
+        x = i;
+        y = j;
+      }
+    }
+  }
+
+  int moves = abs(x - 2) + abs(y - 2);
+  cout << moves << endl;
+
   return 0;
 }
